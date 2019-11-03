@@ -1,5 +1,5 @@
 .usercard {
-  border: 1px solid grey;
+  border: 1px solid lightgrey;
   border-radius: 10%;
   max-width: 45%;
   max-height: 600px;
@@ -13,9 +13,6 @@
 }
 
 .follower-layout {
-  border: 1px solid purple;
-  /* max-width: 45%;
-  max-height: 500px; */
   height: 100%;
   width: 100%;
   display: flex;
@@ -28,10 +25,22 @@
 .button {
   max-width: 60%;
   align-self: center;
+  margin: 2%;
 }
 
 img {
   max-width: 200px;
   margin: 0 auto;
   border-radius: 30%;
+}
+
+.search-bar-layout {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  /* margin: 2%; */
+  margin-bottom: 5%;
+  min-height: 100px;
+  background: lightgray;
 }
