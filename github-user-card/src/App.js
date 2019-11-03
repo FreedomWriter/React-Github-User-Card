@@ -1,5 +1,7 @@
 import React from "react";
 import "./App.css";
+import { Route } from "react-router-dom";
+import Followers from "./components/userComponents/Followers";
 import UserCard from "./components/userComponents/UserCard";
 
 class App extends React.Component {
@@ -48,9 +50,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <UserCard
-          followers={this.state.gitFollowers}
-          gitUser={this.state.gitUser}
+        <UserCard gitUser={this.state.gitUser} />
+        <Route
+          path="/followers"
+          render={props => {
+            return <Followers {...props} followers={this.state.gitFollowers} />;
+          }}
         />
       </div>
     );

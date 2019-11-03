@@ -1,0 +1,32 @@
+.usercard {
+  border: 1px solid grey;
+  border-radius: 10%;
+  max-width: 45%;
+  max-height: 500px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+  padding: 2%;
+  margin: 2% auto;
+}
+
+.follower-layout {
+  border: 1px solid purple;
+  /* max-width: 45%;
+  max-height: 500px; */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  padding: 2%;
+  margin: 2% auto;
+}
+
+img {
+  max-width: 200px;
+  margin: 0 auto;
+  border-radius: 30%;
+}

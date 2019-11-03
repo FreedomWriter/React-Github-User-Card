@@ -1,10 +1,10 @@
 import React from "react";
-import Followers from "./Followers";
+import "../../App.css";
 
 export default function UserCard(props) {
-  console.log(`nd: UserCard: props: `, props.gitUser);
+  console.log(`nd: UserCard: props: `, props);
   return (
-    <div key={props.gitUser.id}>
+    <div className="usercard" key={props.gitUser.id}>
       <img src={props.gitUser.avatar_url} alt={props.gitUser.name} />
       <p>{props.gitUser.login}</p>
       <p>{props.gitUser.name}</p>
@@ -13,10 +13,10 @@ export default function UserCard(props) {
       <p>{props.gitUser.public_repos} Repos</p>
       <p>{props.gitUser.repos_url}</p>
       <p></p>
-      <Followers followers={props.followers}>
+      {/* <Followers followers={props.followers}>
         {" "}
         {props.gitUser.followers} Followers
-      </Followers>
+      </Followers> */}
     </div>
   );
 }
