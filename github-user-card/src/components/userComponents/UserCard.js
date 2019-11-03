@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../../App.css";
 
 export default function UserCard(props) {
-  console.log(`nd: UserCard: props: `, props);
+  // console.log(`nd: UserCard: props: `, props);
 
   return (
     <div className="usercard" key={props.gitUser.id}>

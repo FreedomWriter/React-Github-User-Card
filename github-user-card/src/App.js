@@ -3,24 +3,27 @@ import "./App.css";
 import { Route } from "react-router-dom";
 import Followers from "./components/userComponents/Followers";
 import UserCard from "./components/userComponents/UserCard";
+import Search from "./components/userComponents/Search";
 
 class App extends React.Component {
   state = {
     gitUser: {},
-    gitFollowers: []
+    gitFollowers: [],
+    search: []
   };
 
   componentDidMount() {
-    fetch("https://api.github.com/users/FreedomWriter")
+    fetch(`https://api.github.com/users/FreedomWriter`)
       .then(res => res.json())
       .then(res => {
         this.setState({
-          gitUser: res
+          gitUser: res,
+          search: []
         });
-        console.log(
-          `nd: index.js: App: componentDidMount: this.state.gitUsers: `,
-          this.state.gitUser
-        );
+        // console.log(
+        //   `nd: index.js: App: componentDidMount: this.state.gitUsers: `,
+        //   this.state.gitUser
+        // );
       })
       .catch(err =>
         console.log(
@@ -28,16 +31,17 @@ class App extends React.Component {
           err
         )
       );
-    fetch("https://api.github.com/users/FreedomWriter/followers")
+    fetch(`https://api.github.com/users/FreedomWriter/followers`)
       .then(res => res.json())
       .then(res => {
         this.setState({
-          gitFollowers: res
+          gitFollowers: res,
+          search: []
         });
-        console.log(
-          `nd: index.js: App: componentDidMount: this.state.gitFollowers: `,
-          this.state.gitFollowers
-        );
+        // console.log(
+        //   `nd: index.js: App: componentDidMount: this.state.gitFollowers: `,
+        //   this.state.gitFollowers
+        // );
       })
       .catch(err =>
         console.log(
@@ -47,9 +51,61 @@ class App extends React.Component {
       );
   }
 
+  handleChange = e => {
+    e.preventDefault();
+    this.setState({
+      search: e.target.value
+    });
+  };
+
+  handleSearch = e => {
+    e.preventDefault();
+    fetch(`https://api.github.com/users/${this.state.search}`)
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          gitUser: res,
+          search: []
+        });
+        console.log(
+          `nd: index.js: App: Search: this.state.gitUsers: `,
+          this.state.gitUser
+        );
+      })
+      .catch(err =>
+        console.log(`nd: index.js: App: Search: fetch: then: err: `, err)
+      );
+    fetch(`https://api.github.com/users/${this.state.search}/followers`)
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          gitFollowers: res,
+          search: []
+        });
+        console.log(
+          `nd: index.js: App: Search: this.state.gitFollowers: `,
+          this.state.gitFollowers
+        );
+      })
+      .catch(err =>
+        console.log(`nd: index.js: App: Search: fetch: then: err: `, err)
+      );
+  };
+
+  handleHome = e => {
+    this.setState({
+      search: "FreedomWriter"
+    });
+  };
   render() {
     return (
       <div>
+        <Search
+          handleChange={this.handleChange}
+          handleSearch={this.handleSearch}
+          handleHome={this.handleHome}
+          search={this.state.search}
+        />
         <Route
           exact
           path="/"
