@@ -2,7 +2,7 @@
   border: 1px solid grey;
   border-radius: 10%;
   max-width: 45%;
-  max-height: 500px;
+  max-height: 600px;
   height: 100%;
   width: 100%;
   display: flex;
@@ -23,6 +23,11 @@
   flex-flow: row wrap;
   padding: 2%;
   margin: 2% auto;
+}
+
+.button {
+  max-width: 60%;
+  align-self: center;
 }
 
 img {

@@ -11,9 +11,11 @@ export default function Followers(props) {
           return (
             <div key={follower.id} className="usercard">
               <img src={follower.avatar_url} alt={follower.login} />
-              <Link to={follower.html_url}>Check them out!</Link>
               <p>Screen Name: {follower.login}</p>
-              {/* <p>{follower.}</p> */}
+              <Link to={follower.html_url}>Check them out!</Link>
+              <Link className="button" to="/">
+                <button>Back to {props.gitUser.login}</button>
+              </Link>
             </div>
           );
         })}

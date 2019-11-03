@@ -50,11 +50,29 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <UserCard gitUser={this.state.gitUser} />
+        <Route
+          exact
+          path="/"
+          render={props => {
+            return (
+              <UserCard
+                {...props}
+                gitUser={this.state.gitUser}
+                followers={this.state.gitFollowers}
+              />
+            );
+          }}
+        />
         <Route
           path="/followers"
           render={props => {
-            return <Followers {...props} followers={this.state.gitFollowers} />;
+            return (
+              <Followers
+                {...props}
+                gitUser={this.state.gitUser}
+                followers={this.state.gitFollowers}
+              />
+            );
           }}
         />
       </div>
