@@ -4,7 +4,7 @@ import UserCard from "./components/userComponents/UserCard";
 
 class App extends React.Component {
   state = {
-    gitUser: [],
+    gitUser: {},
     gitFollowers: []
   };
 
@@ -12,9 +12,29 @@ class App extends React.Component {
     fetch("https://api.github.com/users/FreedomWriter")
       .then(res => res.json())
       .then(res => {
+        this.setState({
+          gitUser: res
+        });
         console.log(
-          `nd: index.js: App: componentDidMount: fetch: then: res: `,
-          res
+          `nd: index.js: App: componentDidMount: this.state.gitUsers: `,
+          this.state.gitUser
+        );
+      })
+      .catch(err =>
+        console.log(
+          `nd: index.js: App: componentDidMount: fetch: then: err: `,
+          err
+        )
+      );
+    fetch("https://api.github.com/users/FreedomWriter/followers")
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          gitFollowers: res
+        });
+        console.log(
+          `nd: index.js: App: componentDidMount: this.state.gitFollowers: `,
+          this.state.gitFollowers
         );
       })
       .catch(err =>
@@ -28,7 +48,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <UserCard />
+        <UserCard
+          followers={this.state.gitFollowers}
+          gitUser={this.state.gitUser}
+        />
       </div>
     );
   }
