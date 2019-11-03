@@ -11,8 +11,12 @@ export default function Followers(props) {
           props.followers.map(follower => {
             console.log(`nd: Followers: follower: `, follower);
             return (
-              <div key={follower.id} className="usercard">
-                <img src={follower.avatar_url} alt={follower.login} />
+              <div key={follower.id} className="followercard">
+                <img
+                  className="profile-pic"
+                  src={follower.avatar_url}
+                  alt={follower.login}
+                />
                 <p>Screen Name: {follower.login}</p>
                 <Link to={follower.html_url}>Check them out!</Link>
                 {/* <Link className="button" to="/">

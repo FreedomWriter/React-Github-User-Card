@@ -7,7 +7,11 @@ export default function UserCard(props) {
 
   return (
     <div className="usercard" key={props.gitUser.id}>
-      <img src={props.gitUser.avatar_url} alt={props.gitUser.name} />
+      <img
+        className="profile-pic"
+        src={props.gitUser.avatar_url}
+        alt={props.gitUser.name}
+      />
       <p>{props.gitUser.login}</p>
       <p>{props.gitUser.name}</p>
       <p>{props.gitUser.bio}</p>
@@ -18,6 +22,11 @@ export default function UserCard(props) {
       <Link className="button" to="/followers">
         <button>Who follows {props.gitUser.login}?</button>
       </Link>
+      <img
+        className="user-card"
+        src={`http://ghchart.rshah.org/${props.gitUser.login}`}
+        alt="2016rshah's Github chart"
+      />
     </div>
   );
 }
