@@ -17,7 +17,7 @@ export default function UserCard(props) {
       <p>{props.gitUser.bio}</p>
       <p>{props.gitUser.location}</p>
       <p>{props.gitUser.public_repos} Repos</p>
-      <p>{props.gitUser.repos_url}</p>
+      <a href={props.gitUser.repos_url}>View My Repos</a>
       <p></p>
       <Link className="button" to="/followers">
         <button>Who follows {props.gitUser.login}?</button>
