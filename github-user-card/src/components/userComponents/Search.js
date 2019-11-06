@@ -8,9 +8,9 @@ export default function Search(props) {
       <Link className="button" to="/">
         <button>Home</button>
       </Link>
-      <form className="button">
+      <form className="button" onSubmit={props.handleSearch}>
         <input onChange={props.handleChange} type="text" value={props.search} />
-        <button onClick={props.handleSearch}>Search Another User</button>
+        <button>Search Another User</button>
       </form>
       {/* <Link to="/">
         <button>Back To FreedomWriter</button>

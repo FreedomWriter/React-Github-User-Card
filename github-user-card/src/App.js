@@ -59,76 +59,76 @@ class App extends React.Component {
   };
 
   //switched to prevProps from prevState to test
-  // componentDidUpdate(prevProps, prevState) {
-  //   console.log(JSON.parse(prevProps) + "  " + prevState);
-  //   if (this.state.search) {
-  //     if (prevProps.search !== this.props.search) {
-  //       fetch(`https://api.github.com/users/${this.state.search}`)
-  //         .then(res => res.json())
-  //         .then(res => {
-  //           this.setState({
-  //             gitUser: res,
-  //             search: []
-  //           });
-  //           console.log(
-  //             `nd: index.js: App: Search: this.state.gitUsers: `,
-  //             this.state.gitUser
-  //           );
-  //         })
-  //         .catch(err =>
-  //           console.log(`nd: index.js: App: Search: fetch: then: err: `, err)
-  //         );
-  //       fetch(`https://api.github.com/users/${this.state.search}/followers`)
-  //         .then(res => res.json())
-  //         .then(res => {
-  //           this.setState({
-  //             gitFollowers: res,
-  //             search: []
-  //           });
-  //           console.log(
-  //             `nd: index.js: App: Search: this.state.gitFollowers: `,
-  //             this.state.gitFollowers
-  //           );
-  //         })
-  //         .catch(err =>
-  //           console.log(`nd: index.js: App: Search: fetch: then: err: `, err)
-  //         );
-  //     }
-  //   }
-  // }
+  componentDidUpdate(prevProps, prevState) {
+    // console.log(JSON.parse(prevProps) + "  " + prevState);
+    // if (this.state.search) {
+    if (prevState.search !== this.state.search) {
+      fetch(`https://api.github.com/users/${this.state.search}`)
+        .then(res => res.json())
+        .then(res => {
+          this.setState({
+            gitUser: res,
+            search: []
+          });
+          console.log(
+            `nd: index.js: App: Search: this.state.gitUsers: `,
+            this.state.gitUser
+          );
+        })
+        .catch(err =>
+          console.log(`nd: index.js: App: Search: fetch: then: err: `, err)
+        );
+      fetch(`https://api.github.com/users/${this.state.search}/followers`)
+        .then(res => res.json())
+        .then(res => {
+          this.setState({
+            gitFollowers: res,
+            search: []
+          });
+          console.log(
+            `nd: index.js: App: Search: this.state.gitFollowers: `,
+            this.state.gitFollowers
+          );
+        })
+        .catch(err =>
+          console.log(`nd: index.js: App: Search: fetch: then: err: `, err)
+        );
+    }
+    // }
+  }
 
-  handleSearch = e => {
+  // handleSearch = e => {
     e.preventDefault();
-    fetch(`https://api.github.com/users/${this.state.search}`)
-      .then(res => res.json())
-      .then(res => {
-        this.setState({
-          gitUser: res,
-          search: []
-        });
-        console.log(
-          `nd: index.js: App: Search: this.state.gitUsers: `,
-          this.state.gitUser
-        );
-      })
-      .catch(err =>
-        console.log(`nd: index.js: App: Search: fetch: then: err: `, err)
-      );
-    fetch(`https://api.github.com/users/${this.state.search}/followers`)
-      .then(res => res.json())
-      .then(res => {
-        this.setState({
-          gitFollowers: res,
-          search: []
-        });
-        console.log(
-          `nd: index.js: App: Search: this.state.gitFollowers: `,
-          this.state.gitFollowers
-        );
-      })
-      .catch(err =>
-        console.log(`nd: index.js: App: Search: fetch: then: err: `, err)
-      );
+    // fetch(`https://api.github.com/users/${this.state.search}`)
+    //   .then(res => res.json())
+    //   .then(res => {
+    //     this.setState({
+    //       gitUser: res,
+    //       search: []
+    //     });
+    //     console.log(
+    //       `nd: index.js: App: Search: this.state.gitUsers: `,
+    //       this.state.gitUser
+    //     );
+    //   })
+    //   .catch(err =>
+    //     console.log(`nd: index.js: App: Search: fetch: then: err: `, err)
+    //   );
+    // fetch(`https://api.github.com/users/${this.state.search}/followers`)
+    //   .then(res => res.json())
+    //   .then(res => {
+    //     this.setState({
+    //       gitFollowers: res,
+    //       search: []
+    //     });
+    //     console.log(
+    //       `nd: index.js: App: Search: this.state.gitFollowers: `,
+    //       this.state.gitFollowers
+    //     );
+    //   })
+    //   .catch(err =>
+    //     console.log(`nd: index.js: App: Search: fetch: then: err: `, err)
+    //   );
   };
 
   render() {
