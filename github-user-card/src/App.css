@@ -62,3 +62,7 @@
   min-height: 100px;
   background: lightgray;
 }
+
+h1 {
+  text-align: center;
+}

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Search(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <div className="search-bar-layout ">
       <Link className="button" to="/">
