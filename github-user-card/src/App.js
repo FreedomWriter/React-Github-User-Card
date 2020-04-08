@@ -102,7 +102,6 @@ class App extends React.Component {
   };
 
   render() {
-    console.log(this.state.gitUser.login);
     return (
       <div>
         <Search
